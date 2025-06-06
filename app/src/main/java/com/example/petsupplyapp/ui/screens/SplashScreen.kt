@@ -3,7 +3,7 @@ package com.example.petsupplyapp.ui.screens
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.Image // Import for Image composable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
@@ -11,10 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,7 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource // For loading actual image assets
+import androidx.compose.ui.res.painterResource // Required for painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -38,7 +35,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.petsupplyapp.R // Make sure to import R for resources
 import com.example.petsupplyapp.navigation.AppRoutes
-import com.example.petsupplyapp.ui.theme.PetSupplyAppTheme // Import your custom theme
+import com.example.petsupplyapp.ui.theme.PetSupplyAppTheme
 
 @Composable
 fun SplashScreen(navController: NavController) {
@@ -75,15 +72,12 @@ fun SplashScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Pet Supply Store Logo
-        // IMPORTANT: Replace `Icons.Filled.Pets` with your actual logo.
-        // You'll need to add your logo image to `app/src/main/res/drawable/`
-        // and reference it using `painterResource(id = R.drawable.your_logo_name)`.
-        // For now, we use a placeholder icon.
-        Icon(
-            imageVector = Icons.Filled.Pets, // Placeholder icon
+        // Now using your actual image asset Pets.png from drawable
+        Image(
+            painter = painterResource(id = R.drawable.pets), // Reference Pets.png from drawable
             contentDescription = "Pet Supply App Logo",
-            modifier = Modifier.size(150.dp),
-            tint = textColor // Tint the icon with text color for theme consistency
+            modifier = Modifier.size(150.dp) // Adjust size as needed for your logo
+            // No tint needed for image asset unless specifically desired, image handles its own colors
         )
 
         // Spacing between logo and text
